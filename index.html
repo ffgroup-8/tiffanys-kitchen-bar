@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiffany's Kitchen & Bar — Sitemap &amp; Status Tracker</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    padding: 40px 24px 80px;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .header-left {}
+
+  .sitemap-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+
+  .sitemap-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d2e3f;
+    margin-bottom: 4px;
+  }
+
+  .sitemap-date {
+    font-size: 12px;
+    color: #999;
+  }
+
+  /* ── Status Legend ── */
+  .legend-box {
+    background: #fff;
+    border: 1.5px solid #d4d4cd;
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-width: 360px;
+  }
+
+  .legend-box-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0d2e3f;
+    margin-bottom: 12px;
+  }
+
+  .legend-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 6px 16px;
+    align-items: center;
+  }
+
+  .legend-grid .lg-header {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .legend-grid .lg-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-grid .lg-label .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-design { background: #6366f1; }
+  .dot-dev { background: #f59e0b; }
+  .dot-seo { background: #ef4444; }
+  .dot-content { background: #10b981; }
+  .dot-sanity { background: #8b5cf6; }
+
+  .legend-grid .lg-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #666;
+  }
+
+  /* ── Status Indicators ── */
+  .status-bar {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1.5px solid;
+    white-space: nowrap;
+  }
+
+  .status-pill .pill-icon {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  /* ── Not Started (default) ── */
+  .status-pill.not-started {
+    background: #f8f8f6;
+    border-color: #ddd;
+    color: #aaa;
+  }
+
+  /* ── In Progress ── */
+  .status-pill.in-progress {
+    border-style: solid;
+  }
+
+  .status-pill.in-progress.design {
+    background: #eef0ff;
+    border-color: #6366f1;
+    color: #6366f1;
+  }
+
+  .status-pill.in-progress.dev {
+    background: #fef8ec;
+    border-color: #f59e0b;
+    color: #b87708;
+  }
+
+  .status-pill.in-progress.seo-tag {
+    background: #fef0f0;
+    border-color: #ef4444;
+    color: #dc2626;
+  }
+
+  .status-pill.in-progress.content {
+    background: #ecfdf5;
+    border-color: #10b981;
+    color: #059669;
+  }
+
+  .status-pill.in-progress.sanity {
+    background: #f3f0ff;
+    border-color: #8b5cf6;
+    color: #7c3aed;
+  }
+
+  /* ── Completed ── */
+  .status-pill.completed {
+    color: #fff;
+  }
+
+  .status-pill.completed.design {
+    background: #6366f1;
+    border-color: #6366f1;
+  }
+
+  .status-pill.completed.dev {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #fff;
+  }
+
+  .status-pill.completed.seo-tag {
+    background: #ef4444;
+    border-color: #ef4444;
+  }
+
+  .status-pill.completed.content {
+    background: #10b981;
+    border-color: #10b981;
+  }
+
+  .status-pill.completed.sanity {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+  }
+
+  /* ── Section ── */
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0d2e3f;
+    background: #e8e8e2;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  /* ── Tree Layout ── */
+  .tree-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .node {
+    background: #fff;
+    border: 1.5px solid #d4d4cd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    min-width: 200px;
+    max-width: 240px;
+    position: relative;
+  }
+
+  .node.home {
+    min-width: 280px;
+    max-width: 300px;
+    border-color: #0d2e3f;
+    border-width: 2px;
+  }
+
+  .node-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d2e3f;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .node-title .badge {
+    background: #3bb8c3;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  .node-desc {
+    font-size: 11px;
+    color: #777;
+    line-height: 1.45;
+  }
+
+  .node-url {
+    font-size: 10px;
+    color: #3bb8c3;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ── Connector Line ── */
+  .connector {
+    width: 2px;
+    height: 20px;
+    background: #d4d4cd;
+    margin: 0 auto;
+  }
+
+  /* ── Nav Row ── */
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .nav-item {
+    background: #0d2e3f;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 130px;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-item .nav-desc {
+    font-weight: 400;
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 3px;
+  }
+
+  .nav-item .status-bar {
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  /* ── Columns ── */
+  .columns {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── Grouping ── */
+  .group-box {
+    border: 1.5px dashed #ccc;
+    border-radius: 12px;
+    padding: 24px 16px 16px;
+    position: relative;
+  }
+
+  .group-box .group-label {
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    background: #f5f5f0;
+    padding: 0 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0d2e3f;
+    opacity: 0.5;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+
+  .tag.flagship { background: #0d2e3f; color: #fff; }
+  .tag.service { background: #d8f3f5; color: #1a8a8f; }
+  .tag.industry { background: #fef3dd; color: #a07020; }
+  .tag.seo { background: #fde0e0; color: #a03030; }
+  .tag.support { background: #eee; color: #666; }
+
+  hr {
+    border: none;
+    border-top: 1.5px solid #e0e0da;
+    margin: 40px 0;
+  }
+
+  .note {
+    background: #fffde6;
+    border: 1px solid #e8e0a0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #6b6530;
+    line-height: 1.5;
+    margin-top: 12px;
+    max-width: 860px;
+  }
+
+  .page-count {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0d2e3f;
+    margin-top: 32px;
+    padding: 10px 20px;
+    background: #e0f5f5;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  .center { text-align: center; }
+
+  /* ── Progress Summary ── */
+  .progress-summary {
+    background: #fff;
+    border: 1.5px solid #d4d4cd;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+  }
+
+  .progress-summary-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0d2e3f;
+    margin-bottom: 16px;
+  }
+
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .progress-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 300px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .progress-fill.design { background: #6366f1; }
+  .progress-fill.dev { background: #f59e0b; }
+  .progress-fill.seo-tag { background: #ef4444; }
+  .progress-fill.content { background: #10b981; }
+  .progress-fill.sanity { background: #8b5cf6; }
+
+  .progress-pct {
+    font-size: 12px;
+    font-weight: 700;
+    color: #444;
+    min-width: 40px;
+  }
+
+  /* ── Content Strategy Section ── */
+  .content-section {
+    background: #fff;
+    border: 1.5px solid #d4d4cd;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .content-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0d2e3f;
+    margin-bottom: 4px;
+  }
+
+  .content-section-url {
+    font-size: 11px;
+    color: #3bb8c3;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .content-section p {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .content-section strong {
+    color: #0f1c20;
+  }
+
+  .content-section ul {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    margin-left: 18px;
+    margin-bottom: 8px;
+  }
+
+  .content-section .seo-box {
+    background: #f8f8f6;
+    border: 1px solid #e0e0da;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+
+  .content-section .seo-box-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0d2e3f;
+    margin-bottom: 6px;
+  }
+
+  .content-section .seo-box p {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="header">
+  <div class="header-left">
+    <p class="sitemap-title">Tiffany's Kitchen &amp; Bar</p>
+    <h1 class="sitemap-subtitle">Sitemap &amp; Project Status Tracker</h1>
+    <p class="sitemap-date">Last updated: March 26, 2025</p>
+  </div>
+
+  <div class="legend-box">
+    <div class="legend-box-title">Status Indicators</div>
+    <div class="legend-grid">
+      <!-- Headers -->
+      <div class="lg-header">Category</div>
+      <div class="lg-header">In Progress</div>
+      <div class="lg-header">Completed</div>
+
+      <!-- Design -->
+      <div class="lg-label"><span class="dot dot-design"></span> Design</div>
+      <div class="lg-status"><span class="status-pill not-started design" style="margin:0;"><span class="pill-icon">○</span> Design</span></div>
+      <div class="lg-status"><span class="status-pill completed design" style="margin:0;"><span class="pill-icon">✓</span> Design</span></div>
+
+      <!-- Development -->
+      <div class="lg-label"><span class="dot dot-dev"></span> Development</div>
+      <div class="lg-status"><span class="status-pill not-started dev" style="margin:0;"><span class="pill-icon">○</span> Dev</span></div>
+      <div class="lg-status"><span class="status-pill completed dev" style="margin:0;"><span class="pill-icon">✓</span> Dev</span></div>
+
+      <!-- SEO -->
+      <div class="lg-label"><span class="dot dot-seo"></span> SEO</div>
+      <div class="lg-status"><span class="status-pill not-started seo-tag" style="margin:0;"><span class="pill-icon">○</span> SEO</span></div>
+      <div class="lg-status"><span class="status-pill completed seo-tag" style="margin:0;"><span class="pill-icon">✓</span> SEO</span></div>
+
+      <!-- Content Input -->
+      <div class="lg-label"><span class="dot dot-content"></span> Content Input</div>
+      <div class="lg-status"><span class="status-pill not-started content" style="margin:0;"><span class="pill-icon">○</span> Content</span></div>
+      <div class="lg-status"><span class="status-pill completed content" style="margin:0;"><span class="pill-icon">✓</span> Content</span></div>
+
+      <!-- Sanity Dev -->
+      <div class="lg-label"><span class="dot dot-sanity"></span> Sanity Dev</div>
+      <div class="lg-status"><span class="status-pill not-started sanity" style="margin:0;"><span class="pill-icon">○</span> Sanity</span></div>
+      <div class="lg-status"><span class="status-pill completed sanity" style="margin:0;"><span class="pill-icon">✓</span> Sanity</span></div>
+    </div>
+
+    <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;">
+      <div class="lg-status" style="font-size: 10px; color: #aaa;">
+        <span class="status-pill not-started" style="margin:0;"><span class="pill-icon">○</span> Not Started</span>
+        <span style="margin-left: 4px;">= default state</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- OVERALL PROGRESS -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="progress-summary">
+  <div class="progress-summary-title">Overall Project Progress</div>
+
+  <div class="progress-row">
+    <div class="progress-label"><span class="dot dot-design"></span> Design</div>
+    <div class="progress-track"><div class="progress-fill design" style="width: 0%;" data-target="0%"></div></div>
+    <div class="progress-pct">0%</div>
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-label"><span class="dot dot-dev"></span> Development</div>
+    <div class="progress-track"><div class="progress-fill dev" style="width: 0%;" data-target="0%"></div></div>
+    <div class="progress-pct">0%</div>
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-label"><span class="dot dot-seo"></span> SEO</div>
+    <div class="progress-track"><div class="progress-fill seo-tag" style="width: 0%;" data-target="0%"></div></div>
+    <div class="progress-pct">0%</div>
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-label"><span class="dot dot-content"></span> Content Input</div>
+    <div class="progress-track"><div class="progress-fill content" style="width: 0%;" data-target="0%"></div></div>
+    <div class="progress-pct">0%</div>
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-label"><span class="dot dot-sanity"></span> Sanity Dev</div>
+    <div class="progress-track"><div class="progress-fill sanity" style="width: 0%;" data-target="0%"></div></div>
+    <div class="progress-pct">0%</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: MAIN WEBSITE SITEMAP -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-label">🏠 Tiffany's Kitchen &amp; Bar — Website Sitemap</div>
+
+  <!-- HOME -->
+  <div class="tree-root">
+    <div class="node home">
+      <div class="node-title">HOME</div>
+      <div class="node-desc">Hero, brand intro, featured menu highlights, event callouts, CTAs to Menus, Catering, and Private Parties</div>
+      <div class="node-url">/</div>
+      <div class="status-bar">
+        <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+        <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+        <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+        <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+        <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- NAV ROW — Main navigation items -->
+    <div class="nav-row">
+
+      <div class="nav-item">MENUS &amp; LOCATION<div class="nav-desc">Food, drinks &amp; where to find us</div>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+
+      <div class="nav-item">CATERING<div class="nav-desc">Off-site &amp; event catering services</div>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+
+      <div class="nav-item">PRIVATE PARTIES<div class="nav-desc">Book the venue for private events</div>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+
+      <div class="nav-item">ABOUT / HISTORY<div class="nav-desc">Our story and community roots</div>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+
+      <div class="nav-item">CONTACT<div class="nav-desc">Primary CTA &amp; inquiry form</div>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="height: 20px;"></div>
+
+    <!-- SECONDARY PAGES -->
+    <div class="columns">
+      <div class="column">
+        <div class="group-box">
+          <div class="group-label">Guest Services &amp; Utility Pages</div>
+
+          <div class="node" style="margin-top: 8px;">
+            <div class="node-title">REWARDS</div>
+            <div class="node-desc">Loyalty program sign-up, benefits, and member portal</div>
+            <div class="node-url">/rewards</div>
+            <span class="tag service">Loyalty</span>
+            <div class="status-bar">
+              <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+              <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+              <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+              <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+              <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+            </div>
+          </div>
+          <div class="connector"></div>
+
+          <div class="node">
+            <div class="node-title">GIFT CARDS</div>
+            <div class="node-desc">Purchase and redeem digital or physical gift cards</div>
+            <div class="node-url">/gift-cards</div>
+            <span class="tag service">Commerce</span>
+            <div class="status-bar">
+              <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+              <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+              <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+              <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+              <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+            </div>
+          </div>
+          <div class="connector"></div>
+
+          <div class="node">
+            <div class="node-title">DONATIONS</div>
+            <div class="node-desc">Community giving program and donation request submissions</div>
+            <div class="node-url">/donations</div>
+            <span class="tag support">Community</span>
+            <div class="status-bar">
+              <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+              <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+              <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+              <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+              <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+            </div>
+          </div>
+          <div class="connector"></div>
+
+          <div class="node">
+            <div class="node-title">CAREERS</div>
+            <div class="node-desc">Open positions, culture, and job application form</div>
+            <div class="node-url">/careers</div>
+            <span class="tag support">Hiring</span>
+            <div class="status-bar">
+              <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+              <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+              <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+              <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+              <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: SEO / MARKETING PAGES -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-label">📈 SEO &amp; AEO Landing Pages (Not in Main Nav)</div>
+
+  <div class="note" style="margin-bottom: 24px;">
+    <strong>Note:</strong> These pages are NOT in the main nav. They exist to capture organic search traffic and funnel visitors to the main site. Indexed but accessed primarily through search.
+  </div>
+
+  <div class="columns">
+
+    <div class="column">
+      <div class="node">
+        <div class="node-title">Best Restaurants in Maple Grove MN</div>
+        <div class="node-desc">Top-of-funnel local discovery page targeting "best restaurants maple grove" and nearby queries</div>
+        <div class="node-url">/best-restaurants-maple-grove-mn</div>
+        <span class="tag seo">Local SEO</span>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="node">
+        <div class="node-title">Private Event Venue Maple Grove MN</div>
+        <div class="node-desc">Targets searches for private party venues, corporate event spaces, and birthday venue rentals in Maple Grove</div>
+        <div class="node-url">/private-event-venue-maple-grove-mn</div>
+        <span class="tag seo">Local SEO</span>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="node">
+        <div class="node-title">Catering Maple Grove MN</div>
+        <div class="node-desc">Targets catering service searches for corporate, wedding, and event catering in the Maple Grove area</div>
+        <div class="node-url">/catering-maple-grove-mn</div>
+        <span class="tag seo">Local SEO</span>
+        <div class="status-bar">
+          <span class="status-pill not-started design"><span class="pill-icon">○</span> Design</span>
+          <span class="status-pill not-started dev"><span class="pill-icon">○</span> Dev</span>
+          <span class="status-pill not-started seo-tag"><span class="pill-icon">○</span> SEO</span>
+          <span class="status-pill not-started content"><span class="pill-icon">○</span> Content</span>
+          <span class="status-pill not-started sanity"><span class="pill-icon">○</span> Sanity</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: PAGE CONTENT STRATEGY -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-label">📋 Page Content Strategy &amp; SEO/AEO Structure</div>
+
+  <!-- HOME -->
+  <div class="content-section">
+    <div class="content-section-title">🏠 Home</div>
+    <div class="content-section-url">/</div>
+    <p><strong>Purpose:</strong> First impression for new visitors and returning guests. Drive traffic to Menus, Catering, and Private Parties. Establish brand warmth and Maple Grove community identity.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Hero:</strong> Full-width image/video of the restaurant atmosphere. Headline reinforcing the brand ("Great food, cold drinks, good people") with CTAs to Menus and Reservations.</li>
+      <li><strong>Featured Menu Highlights:</strong> Preview of 3-4 signature dishes or seasonal items with photos.</li>
+      <li><strong>Catering &amp; Private Parties Callout:</strong> Two-up card section promoting both services with CTAs.</li>
+      <li><strong>About Snippet:</strong> Short brand story blurb with link to full History page.</li>
+      <li><strong>Rewards Program Promo:</strong> Sign-up teaser with loyalty program benefits.</li>
+      <li><strong>Hours &amp; Location:</strong> Quick reference block with address, hours, and embedded map.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Tiffany's Kitchen &amp; Bar | Maple Grove, MN</p>
+      <p><strong>Meta Description:</strong> Tiffany's Kitchen &amp; Bar in Maple Grove, MN serves up scratch-made food, craft drinks, catering, and private event spaces. Come hungry, leave happy.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar, restaurant Maple Grove MN, bar Maple Grove MN, dining Maple Grove</p>
+      <p><strong>Schema:</strong> Restaurant, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "What restaurants are in Maple Grove MN?" · "Is Tiffany's Kitchen and Bar good?" · "Does Tiffany's Kitchen and Bar take reservations?"</p>
+    </div>
+  </div>
+
+  <!-- MENUS & LOCATION -->
+  <div class="content-section">
+    <div class="content-section-title">🍽️ Menus &amp; Location</div>
+    <div class="content-section-url">/menus-location</div>
+    <p><strong>Purpose:</strong> One-stop page for guests to browse food and drink menus and find the restaurant. Reduce friction for in-person visit intent.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Menu Tabs / Sections:</strong> Food Menu, Drinks Menu, Happy Hour specials (if applicable).</li>
+      <li><strong>Hours of Operation:</strong> Clear display of daily hours, holiday hours callout.</li>
+      <li><strong>Location &amp; Directions:</strong> Address, embedded Google Map, parking notes.</li>
+      <li><strong>Reservations / Order Online CTA:</strong> Link to reservation system or third-party ordering.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Menu &amp; Location | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Browse the full food and drink menu at Tiffany's Kitchen &amp; Bar in Maple Grove, MN. Find our hours, address, and directions here.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar menu, Maple Grove restaurant menu, bar menu Maple Grove MN</p>
+      <p><strong>Schema:</strong> Restaurant, Menu</p>
+      <p><strong>AEO Targets:</strong> "What is on the menu at Tiffany's Kitchen and Bar?" · "What are the hours for Tiffany's Kitchen and Bar?" · "Where is Tiffany's Kitchen and Bar located?"</p>
+    </div>
+  </div>
+
+  <!-- CATERING -->
+  <div class="content-section">
+    <div class="content-section-title">🥡 Catering</div>
+    <div class="content-section-url">/catering</div>
+    <p><strong>Purpose:</strong> Convert visitors searching for catering services in Maple Grove. Generate catering inquiry leads.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Hero / Value Prop:</strong> What makes Tiffany's catering different — scratch-made, customizable, locally sourced (if applicable).</li>
+      <li><strong>Catering Menu Options:</strong> Overview of catering packages, service styles (drop-off, full-service, buffet, etc.).</li>
+      <li><strong>Event Types Served:</strong> Corporate, weddings, birthdays, community events.</li>
+      <li><strong>Service Area:</strong> Maple Grove and surrounding Twin Cities suburbs.</li>
+      <li><strong>Inquiry / Quote Request Form:</strong> Primary CTA — name, date, event type, guest count, notes.</li>
+      <li><strong>Testimonials:</strong> Past catering client quotes.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Catering Services | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Tiffany's Kitchen &amp; Bar offers full-service catering in Maple Grove, MN for corporate events, weddings, birthdays, and more. Request a quote today.</p>
+      <p><strong>Primary Keywords:</strong> catering Maple Grove MN, restaurant catering Minneapolis suburbs, event catering Tiffany's</p>
+      <p><strong>Schema:</strong> FoodService, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "Does Tiffany's Kitchen and Bar offer catering?" · "Who does catering in Maple Grove MN?" · "Best catering companies near Maple Grove Minnesota"</p>
+    </div>
+  </div>
+
+  <!-- PRIVATE PARTIES -->
+  <div class="content-section">
+    <div class="content-section-title">🎉 Private Parties</div>
+    <div class="content-section-url">/private-parties</div>
+    <p><strong>Purpose:</strong> Book the restaurant or private sections for exclusive events. Generate event inquiry leads.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Hero / Event Types:</strong> Birthdays, corporate events, holiday parties, celebrations.</li>
+      <li><strong>Venue Details:</strong> Capacity, private room options, full buyout availability, A/V capabilities.</li>
+      <li><strong>Packages &amp; Pricing:</strong> Overview of event packages (food, bar, service inclusions).</li>
+      <li><strong>Photo Gallery:</strong> Past private events to inspire and build trust.</li>
+      <li><strong>Booking / Inquiry Form:</strong> Primary CTA — date, event type, guest count, contact info.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Private Party Venue | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Host your next private event at Tiffany's Kitchen &amp; Bar in Maple Grove, MN. Birthdays, corporate parties, and celebrations. Book your date today.</p>
+      <p><strong>Primary Keywords:</strong> private party venue Maple Grove MN, restaurant event space Maple Grove, private dining room Minneapolis suburbs</p>
+      <p><strong>Schema:</strong> EventVenue, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "Can I rent out Tiffany's Kitchen and Bar for a private event?" · "Private party restaurants in Maple Grove MN" · "Best private event venues near Maple Grove Minnesota"</p>
+    </div>
+  </div>
+
+  <!-- HISTORY / ABOUT -->
+  <div class="content-section">
+    <div class="content-section-title">📖 History / About</div>
+    <div class="content-section-url">/about</div>
+    <p><strong>Purpose:</strong> Build brand trust, tell the origin story, and humanize the business for new and returning guests.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Origin Story:</strong> How and when Tiffany's was founded, the vision behind it.</li>
+      <li><strong>The Team:</strong> Owners, key staff, and the people behind the brand.</li>
+      <li><strong>Community Ties:</strong> Maple Grove roots, local partnerships, community involvement.</li>
+      <li><strong>Values / Philosophy:</strong> Food philosophy, hospitality approach, what sets them apart.</li>
+      <li><strong>Photos:</strong> Candid team photos, restaurant history, milestones.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Our Story | Tiffany's Kitchen &amp; Bar Maple Grove</p>
+      <p><strong>Meta Description:</strong> Learn the history behind Tiffany's Kitchen &amp; Bar in Maple Grove, MN. A community-rooted restaurant and bar built on great food and genuine hospitality.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar history, about Tiffany's Maple Grove, Maple Grove restaurant story</p>
+      <p><strong>Schema:</strong> Restaurant, AboutPage</p>
+      <p><strong>AEO Targets:</strong> "Who owns Tiffany's Kitchen and Bar?" · "How long has Tiffany's Kitchen and Bar been open?" · "What is the story behind Tiffany's Kitchen and Bar?"</p>
+    </div>
+  </div>
+
+  <!-- REWARDS -->
+  <div class="content-section">
+    <div class="content-section-title">⭐ Rewards</div>
+    <div class="content-section-url">/rewards</div>
+    <p><strong>Purpose:</strong> Drive loyalty program sign-ups and return visits. Reduce guest churn.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Program Overview:</strong> How it works — earn points, redeem rewards.</li>
+      <li><strong>Tiers / Benefits:</strong> What members get at each level (if tiered).</li>
+      <li><strong>Sign-Up CTA:</strong> Simple enrollment form or link to rewards platform.</li>
+      <li><strong>Member Login:</strong> Link to existing member account portal.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Rewards Program | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Join the Tiffany's Kitchen &amp; Bar rewards program and earn points on every visit. Sign up free and start redeeming perks at our Maple Grove location.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar rewards, restaurant loyalty program Maple Grove, dining rewards Maple Grove MN</p>
+      <p><strong>Schema:</strong> LoyaltyProgram, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "Does Tiffany's Kitchen and Bar have a loyalty program?" · "How do I earn rewards at Tiffany's Kitchen and Bar?"</p>
+    </div>
+  </div>
+
+  <!-- GIFT CARDS -->
+  <div class="content-section">
+    <div class="content-section-title">🎁 Gift Cards</div>
+    <div class="content-section-url">/gift-cards</div>
+    <p><strong>Purpose:</strong> Drive gift card sales, especially for holiday and gifting seasons. Capture impulse purchase traffic.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Buy a Gift Card:</strong> Digital and/or physical gift card purchase flow.</li>
+      <li><strong>Check Balance:</strong> Tool for existing cardholders to check remaining balance.</li>
+      <li><strong>Gifting Occasions:</strong> Birthdays, holidays, thank-yous — copywriting to inspire gifting intent.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Gift Cards | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Give the gift of great food. Purchase Tiffany's Kitchen &amp; Bar gift cards online for any occasion. Perfect for birthdays, holidays, and thank-yous.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar gift card, restaurant gift card Maple Grove MN, buy gift card Tiffany's</p>
+      <p><strong>Schema:</strong> Product, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "Can I buy a gift card for Tiffany's Kitchen and Bar?" · "Does Tiffany's Kitchen and Bar sell gift cards online?"</p>
+    </div>
+  </div>
+
+  <!-- DONATIONS -->
+  <div class="content-section">
+    <div class="content-section-title">🤝 Donations</div>
+    <div class="content-section-url">/donations</div>
+    <p><strong>Purpose:</strong> Handle inbound donation and sponsorship requests from local organizations. Manage community giving program transparently.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Program Overview:</strong> Tiffany's commitment to the Maple Grove community.</li>
+      <li><strong>Eligibility &amp; Guidelines:</strong> What types of organizations and causes they support.</li>
+      <li><strong>Donation Request Form:</strong> Organization name, event/cause, amount requested, contact info, deadline.</li>
+      <li><strong>Past Recipients:</strong> Optional showcase of community partners supported.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Community Donations | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Tiffany's Kitchen &amp; Bar supports the Maple Grove community through donations and sponsorships. Submit your donation request and learn about our giving program.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar donations, restaurant community giving Maple Grove, sponsorship request Maple Grove MN</p>
+      <p><strong>Schema:</strong> DonateAction, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "Does Tiffany's Kitchen and Bar do donations?" · "How do I request a donation from Tiffany's Kitchen and Bar?"</p>
+    </div>
+  </div>
+
+  <!-- CAREERS -->
+  <div class="content-section">
+    <div class="content-section-title">💼 Careers</div>
+    <div class="content-section-url">/careers</div>
+    <p><strong>Purpose:</strong> Attract qualified candidates and reduce hiring friction. Showcase company culture to prospective employees.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>Why Work Here:</strong> Culture, benefits, team environment, growth opportunities.</li>
+      <li><strong>Open Positions:</strong> Current job listings (FOH, BOH, management) — ideally Sanity-managed.</li>
+      <li><strong>Application Form / Link:</strong> Direct apply CTA per position or general application intake.</li>
+      <li><strong>Team Photos:</strong> Humanize the workplace — show real staff and atmosphere.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Jobs &amp; Careers | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Join the Tiffany's Kitchen &amp; Bar team in Maple Grove, MN. Browse open restaurant and bar positions and apply online today.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar jobs, restaurant jobs Maple Grove MN, bar jobs Maple Grove, hiring Maple Grove restaurant</p>
+      <p><strong>Schema:</strong> JobPosting, EmployerAggregateRating</p>
+      <p><strong>AEO Targets:</strong> "Is Tiffany's Kitchen and Bar hiring?" · "How do I apply for a job at Tiffany's Kitchen and Bar?" · "Restaurant jobs in Maple Grove MN"</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="content-section">
+    <div class="content-section-title">📬 Contact</div>
+    <div class="content-section-url">/contact</div>
+    <p><strong>Purpose:</strong> Catch-all inquiry page for general questions, media, reservations, and feedback. Primary conversion point for visitors who didn't convert elsewhere.</p>
+    <p><strong>Sections to Feature:</strong></p>
+    <ul>
+      <li><strong>General Contact Form:</strong> Name, email, subject/inquiry type, message.</li>
+      <li><strong>Phone &amp; Email:</strong> Direct contact info prominently displayed.</li>
+      <li><strong>Hours &amp; Address:</strong> Repeated here for convenience with embedded map.</li>
+      <li><strong>Catering / Party Inquiry Links:</strong> Quick links to the specialized forms on those pages.</li>
+    </ul>
+    <div class="seo-box">
+      <div class="seo-box-title">SEO / AEO Strategy</div>
+      <p><strong>SEO Title:</strong> Contact Us | Tiffany's Kitchen &amp; Bar</p>
+      <p><strong>Meta Description:</strong> Get in touch with Tiffany's Kitchen &amp; Bar in Maple Grove, MN. Questions, reservations, media inquiries, and general contact info all in one place.</p>
+      <p><strong>Primary Keywords:</strong> Tiffany's Kitchen and Bar contact, Maple Grove restaurant contact, reach Tiffany's Kitchen and Bar</p>
+      <p><strong>Schema:</strong> ContactPage, LocalBusiness</p>
+      <p><strong>AEO Targets:</strong> "What is the phone number for Tiffany's Kitchen and Bar?" · "How do I contact Tiffany's Kitchen and Bar?" · "What is the address of Tiffany's Kitchen and Bar?"</p>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: MASTER KNOWLEDGE BASE -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-label">🗂️ Tiffany's Kitchen &amp; Bar — Master Knowledge Base</div>
+
+  <div class="note" style="margin-bottom: 24px;">
+    <strong>Compiled from:</strong> Initial project brief. Update as client discovery, brand guidelines, and content assets are received.
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Company Overview</div>
+    <ul>
+      <li><strong>Full Name:</strong> Tiffany's Kitchen &amp; Bar</li>
+      <li><strong>Type:</strong> Full-service restaurant and bar</li>
+      <li><strong>Location:</strong> Maple Grove, MN</li>
+      <li><strong>Market:</strong> Twin Cities northwest suburbs</li>
+      <li><strong>Website (current):</strong> [TBD — add existing URL if applicable]</li>
+      <li><strong>Email:</strong> [TBD]</li>
+      <li><strong>Phone:</strong> [TBD]</li>
+      <li><strong>Leadership / Ownership:</strong> [TBD]</li>
+      <li><strong>Founded:</strong> [TBD]</li>
+      <li><strong>Employees:</strong> [TBD]</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Key Products / Services</div>
+    <ul>
+      <li><strong>Dine-In Restaurant:</strong> Full-service kitchen and bar open to the public</li>
+      <li><strong>Bar Program:</strong> Cocktails, beer, wine, and spirits</li>
+      <li><strong>Catering:</strong> Off-site event catering for corporate, social, and celebration events</li>
+      <li><strong>Private Events:</strong> On-site venue rental for private parties and corporate buyouts</li>
+      <li><strong>Rewards Program:</strong> Guest loyalty program</li>
+      <li><strong>Gift Cards:</strong> Digital and/or physical gift card program</li>
+      <li><strong>Community Giving:</strong> Donation and sponsorship program for local organizations</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Key Differentiators</div>
+    <ul>
+      <li>[TBD — Add from client discovery: e.g., scratch kitchen, local sourcing, signature dishes, years in operation, community reputation]</li>
+      <li>[TBD — Unique atmosphere or design elements]</li>
+      <li>[TBD — Awards, recognition, press mentions]</li>
+      <li>Community-forward brand with active donation/giving program</li>
+      <li>Full-service catering AND private event capabilities under one roof</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Target Audience</div>
+    <ul>
+      <li><strong>Primary:</strong> Maple Grove and northwest Twin Cities suburbs residents — families, couples, local professionals</li>
+      <li><strong>Catering Buyers:</strong> Local businesses, HR teams, event planners, wedding couples</li>
+      <li><strong>Party Hosts:</strong> Birthday/celebration planners, corporate event coordinators</li>
+      <li><strong>Job Seekers:</strong> FOH and BOH candidates in the Maple Grove / Plymouth area</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Competitive Landscape</div>
+    <ul>
+      <li>[TBD — Add nearby restaurant and bar competitors in Maple Grove and surrounding suburbs]</li>
+      <li>[TBD — Note any local catering competitors]</li>
+      <li><strong>Positioning:</strong> Community-rooted, full-service dining and events destination — not fast casual, not fine dining</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section-title">Brand Voice &amp; Tone</div>
+    <ul>
+      <li>[TBD — Gather from client: e.g., warm, approachable, locally proud, fun but not juvenile]</li>
+      <li>[TBD — Any existing taglines or brand phrases to carry forward]</li>
+    </ul>
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SUMMARY -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="center">
+  <div class="page-count">Total Pages at Launch: 10 pages &nbsp;·&nbsp; 50 status items to track (10 pages × 5 categories)</div>
+</div>
+
+<div style="height: 24px;"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HOW THIS TRACKER WORKS -->
+<!-- ═══════════════════════════════════════ -->
+
+<div class="note" style="margin: 0 auto; max-width: 860px;">
+  <strong>How This Tracker Works:</strong><br><br>
+  <strong>1. Status updates:</strong> When a page category is completed, tell Claude which page and which category (Design, Dev, SEO, Content, Sanity) to mark as complete. Claude will update the pill from ○ Not Started → ✓ Completed and recalculate progress bars.<br><br>
+  <strong>2. Git workflow:</strong> After each update, save the updated HTML and push to the Git repo so the client always sees current status.<br><br>
+  <strong>3. SEO/AEO pages:</strong> Additional landing pages can be added to Section 2 as keyword research identifies new opportunities.<br><br>
+  <strong>4. Blog articles:</strong> Individual blog post pages are not tracked here — they're self-managed through Sanity. The /blog listing page itself IS tracked if added.<br><br>
+  <strong>5. Knowledge base:</strong> Section 4 (Master Knowledge Base) serves as the single source of truth for all content creation across the site. Update as new information becomes available from the client.
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- ANIMATION SCRIPT -->
+<!-- ═══════════════════════════════════════ -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var fills = document.querySelectorAll('.progress-fill');
+    fills.forEach(function(fill) {
+      var w = fill.style.width;
+      fill.setAttribute('data-target', w);
+      fill.style.width = '0%';
+    });
+    setTimeout(function() {
+      fills.forEach(function(fill, i) {
+        setTimeout(function() {
+          fill.style.width = fill.getAttribute('data-target');
+        }, i * 200);
+      });
+    }, 500);
+  });
+</script>
+
+</body></html>
