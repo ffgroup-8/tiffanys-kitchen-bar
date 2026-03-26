@@ -1217,8 +1217,9 @@
   document.addEventListener('DOMContentLoaded', function() {
     var fills = document.querySelectorAll('.progress-fill');
     fills.forEach(function(fill) {
-      var w = fill.style.width;
-      fill.setAttribute('data-target', w);
+      // Respect data-target if already set in markup; otherwise read from inline style
+      var target = fill.getAttribute('data-target') || fill.style.width;
+      fill.setAttribute('data-target', target);
       fill.style.width = '0%';
     });
     setTimeout(function() {
