@@ -555,6 +555,213 @@
     line-height: 1.5;
     margin-bottom: 4px;
   }
+
+  /* ══════════════════════════════════════════════════════
+     THEME TOGGLE BUTTON
+  ══════════════════════════════════════════════════════ */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1.5px solid #d4d4cd;
+    border-radius: 999px;
+    padding: 6px 14px 6px 10px;
+    cursor: pointer;
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    user-select: none;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .theme-toggle:hover { border-color: #999; }
+
+  .theme-toggle .toggle-track {
+    width: 34px;
+    height: 19px;
+    background: #ddd;
+    border-radius: 999px;
+    position: relative;
+    transition: background 0.25s;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle .toggle-thumb {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     DARK MODE OVERRIDES
+  ══════════════════════════════════════════════════════ */
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  [data-theme="dark"] body {
+    background: #0b1c27;
+    color: #dce8ee;
+  }
+
+  /* Toggle button in dark mode */
+  [data-theme="dark"] .theme-toggle {
+    background: #112233;
+    border-color: #1e3a52;
+    color: #9cc4d8;
+  }
+
+  [data-theme="dark"] .theme-toggle:hover { border-color: #3a6a88; }
+
+  [data-theme="dark"] .theme-toggle .toggle-track {
+    background: #3bbfcc;
+  }
+
+  [data-theme="dark"] .theme-toggle .toggle-thumb {
+    transform: translateX(15px);
+  }
+
+  /* Header text */
+  [data-theme="dark"] .sitemap-title { color: #4e7d97; }
+  [data-theme="dark"] .sitemap-subtitle { color: #dce8ee; }
+  [data-theme="dark"] .sitemap-date { color: #4e7d97; }
+
+  /* Legend box */
+  [data-theme="dark"] .legend-box {
+    background: #112233;
+    border-color: #1e3a52;
+  }
+
+  [data-theme="dark"] .legend-box-title { color: #7cc8d8; }
+  [data-theme="dark"] .legend-grid .lg-header { color: #4e7d97; border-bottom-color: #1e3a52; }
+  [data-theme="dark"] .legend-grid .lg-label { color: #9cc4d8; }
+  [data-theme="dark"] .legend-grid .lg-status { color: #4e7d97; }
+
+  /* Legend not-started state in dark */
+  [data-theme="dark"] .status-pill.not-started {
+    background: #0f2233;
+    border-color: #1e3a52;
+    color: #3a6a88;
+  }
+
+  /* Progress summary */
+  [data-theme="dark"] .progress-summary {
+    background: #112233;
+    border-color: #1e3a52;
+  }
+
+  [data-theme="dark"] .progress-summary-title { color: #dce8ee; }
+  [data-theme="dark"] .progress-label { color: #9cc4d8; }
+  [data-theme="dark"] .progress-track { background: #1a3347; }
+  [data-theme="dark"] .progress-pct { color: #9cc4d8; }
+
+  /* Section labels */
+  [data-theme="dark"] .section-label {
+    background: #163347;
+    color: #7cc8d8;
+  }
+
+  /* Nodes */
+  [data-theme="dark"] .node {
+    background: #112233;
+    border-color: #1e3a52;
+  }
+
+  [data-theme="dark"] .node.home {
+    border-color: #3bbfcc;
+  }
+
+  [data-theme="dark"] .node-title { color: #dce8ee; }
+  [data-theme="dark"] .node-desc { color: #5a8aa3; }
+  [data-theme="dark"] .node-url { color: #3bbfcc; }
+
+  /* Tags */
+  [data-theme="dark"] .tag.flagship { background: #163347; color: #7cc8d8; }
+  [data-theme="dark"] .tag.service { background: #0f2d38; color: #3bbfcc; }
+  [data-theme="dark"] .tag.industry { background: #2a1f0a; color: #c8a040; }
+  [data-theme="dark"] .tag.seo { background: #2a0f0f; color: #e07070; }
+  [data-theme="dark"] .tag.support { background: #163347; color: #5a8aa3; }
+
+  /* Nav items */
+  [data-theme="dark"] .nav-item {
+    background: #071520;
+    border: 1px solid #1e3a52;
+  }
+
+  [data-theme="dark"] .nav-item .nav-desc { color: rgba(156, 196, 216, 0.55); }
+
+  /* Connector lines */
+  [data-theme="dark"] .connector { background: #1e3a52; }
+
+  /* Group box */
+  [data-theme="dark"] .group-box { border-color: #1e3a52; }
+  [data-theme="dark"] .group-box .group-label {
+    background: #0b1c27;
+    color: #4e7d97;
+  }
+
+  /* Node badge */
+  [data-theme="dark"] .node-title .badge { background: #3bbfcc; }
+
+  /* HR */
+  [data-theme="dark"] hr { border-top-color: #1e3a52; }
+
+  /* Note blocks */
+  [data-theme="dark"] .note {
+    background: #161f14;
+    border-color: #2d4826;
+    color: #b8a848;
+  }
+
+  /* Page count */
+  [data-theme="dark"] .page-count {
+    background: #0f2d38;
+    color: #7cc8d8;
+  }
+
+  /* Content strategy sections */
+  [data-theme="dark"] .content-section {
+    background: #112233;
+    border-color: #1e3a52;
+  }
+
+  [data-theme="dark"] .content-section-title { color: #dce8ee; }
+  [data-theme="dark"] .content-section-url { color: #3bbfcc; }
+
+  [data-theme="dark"] .content-section p {
+    color: #7aa5bc;
+  }
+
+  [data-theme="dark"] .content-section strong { color: #dce8ee; }
+
+  [data-theme="dark"] .content-section ul {
+    color: #7aa5bc;
+  }
+
+  [data-theme="dark"] .content-section hr {
+    border-top-color: #1e3a52;
+  }
+
+  /* SEO box */
+  [data-theme="dark"] .content-section .seo-box {
+    background: #0b1c27;
+    border-color: #1e3a52;
+  }
+
+  [data-theme="dark"] .content-section .seo-box-title { color: #7cc8d8; }
+
+  [data-theme="dark"] .content-section .seo-box p { color: #5a8aa3; }
 </style>
 </head>
 <body>
@@ -569,6 +776,12 @@
     <h1 class="sitemap-subtitle">Sitemap &amp; Project Status Tracker</h1>
     <p class="sitemap-date">Last updated: March 26, 2026</p>
   </div>
+
+
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle light / dark mode">
+    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+    <span id="themeLabel">Dark Mode</span>
+  </button>
 
   <div class="legend-box">
     <div class="legend-box-title">Status Indicators</div>
@@ -1258,6 +1471,28 @@
       });
     }, 500);
   });
+
+  // ── Theme toggle ──────────────────────────────────────────────
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeLabel').textContent = isDark ? 'Dark Mode' : 'Light Mode';
+    localStorage.setItem('trackerTheme', isDark ? 'light' : 'dark');
+  }
+
+  // Apply saved theme on load
+  (function() {
+    const saved = localStorage.getItem('trackerTheme') || 'light';
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      // Label updated after DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const label = document.getElementById('themeLabel');
+        if (label) label.textContent = 'Light Mode';
+      });
+    }
+  })();
 </script>
 
 </body></html>
