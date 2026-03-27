@@ -30,7 +30,7 @@ Follow all rules in `../_Project Tracker Master/CLAUDE.md`. That file is the sou
 | SEO             | (check tracker) |
 | Content Input   | (check tracker) |
 | Sanity Dev      | (check tracker) |
-| Content Created | 0% (0/13 pages complete) |
+| Content Created | 38% (5/13 pages complete) |
 
 ---
 
@@ -39,16 +39,16 @@ Follow all rules in `../_Project Tracker Master/CLAUDE.md`. That file is the sou
 | # | Page | Slug | Content Created |
 |---|------|------|-----------------|
 | 1 | 🏠 Home | `/` | ⬜ needed |
-| 2 | 🍽️ Menus & Location | `/menus` | ⬜ needed |
-| 3 | 🥡 Catering | `/catering` | ⬜ needed |
+| 2 | 🍽️ Menus & Location | `/menus` | ✅ done |
+| 3 | 🥡 Catering | `/catering` | ✅ done |
 | 4 | 🎉 Private Parties | `/private-parties` | ⬜ needed |
 | 5 | 📖 History / About | `/about` | ⬜ needed |
-| 6 | ⭐ Rewards | `/rewards` | ⬜ needed |
+| 6 | ⭐ Rewards | `/rewards` | ✅ done |
 | 7 | 🎁 Gift Cards | `/gift-cards` | ✅ done (used as reference model) |
 | 8 | 🤝 Donations | `/donations` | ⬜ needed |
 | 9 | 💼 Careers | `/careers` | ⬜ needed |
 | 10 | 🎟️ Events & Offers | `/events` | ⬜ needed |
-| 11 | 📬 Contact | `/contact` | ⬜ needed |
+| 11 | 📬 Contact | `/contact` | ✅ done |
 | — | Knowledge Base sections | — | n/a |
 
 ---
