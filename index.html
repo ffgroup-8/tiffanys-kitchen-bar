@@ -110,8 +110,8 @@
 
   .dot-design { background: #6366f1; }
   .dot-dev { background: #f59e0b; }
-  .dot-seo { background: #ef4444; }
-  .dot-content { background: #10b981; }
+  .dot-seo { background: #10b981; }
+  .dot-content { background: #ef4444; }
   .dot-sanity { background: #8b5cf6; }
   .dot-content-created { background: #0ea5e9; }
 
@@ -174,15 +174,15 @@
   }
 
   .status-pill.in-progress.seo-tag {
-    background: #fef0f0;
-    border-color: #ef4444;
-    color: #dc2626;
-  }
-
-  .status-pill.in-progress.content {
     background: #ecfdf5;
     border-color: #10b981;
     color: #059669;
+  }
+
+  .status-pill.in-progress.content {
+    background: #fef0f0;
+    border-color: #ef4444;
+    color: #dc2626;
   }
 
   .status-pill.in-progress.sanity {
@@ -208,13 +208,13 @@
   }
 
   .status-pill.completed.seo-tag {
-    background: #ef4444;
-    border-color: #ef4444;
+    background: #10b981;
+    border-color: #10b981;
   }
 
   .status-pill.completed.content {
-    background: #10b981;
-    border-color: #10b981;
+    background: #ef4444;
+    border-color: #ef4444;
   }
 
   .status-pill.completed.sanity {
@@ -485,8 +485,8 @@
 
   .progress-fill.design { background: #6366f1; }
   .progress-fill.dev { background: #f59e0b; }
-  .progress-fill.seo-tag { background: #ef4444; }
-  .progress-fill.content { background: #10b981; }
+  .progress-fill.seo-tag { background: #10b981; }
+  .progress-fill.content { background: #ef4444; }
   .progress-fill.sanity { background: #8b5cf6; }
   .progress-fill.content-created { background: #0ea5e9; }
 
@@ -562,6 +562,22 @@
     line-height: 1.5;
     margin-bottom: 4px;
   }
+
+  
+  /* ── Rings progress chart ── */
+  .progress-summary { display: flex; align-items: center; gap: 40px; }
+  .progress-bars-col { flex: 1; min-width: 0; }
+  .rings-chart-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0; }
+  .rings-svg-container { position: relative; width: 160px; height: 160px; }
+  .rings-svg-container svg { transform: rotate(-90deg); overflow: visible; }
+  .ring-bg { fill: none; stroke: #eeede8; stroke-width: 8; stroke-linecap: round; }
+  .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 0 1000; transition: stroke-dasharray 0.9s cubic-bezier(0.4, 0, 0.2, 1); }
+  .rings-center-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; pointer-events: none; }
+  .rings-overall-pct { display: block; font-size: 20px; font-weight: 700; color: #0d2e3f; line-height: 1; }
+  .rings-overall-label { display: block; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: #bbb; margin-top: 3px; }
+  .rings-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+  .rings-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #777; font-weight: 500; white-space: nowrap; }
+  .rings-legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
   /* ══════════════════════════════════════════════════════
      THEME TOGGLE BUTTON
@@ -770,6 +786,11 @@
   [data-theme="dark"] .content-section .seo-box-title { color: #aaaaaa; }
 
   [data-theme="dark"] .content-section .seo-box p { color: #5a8aa3; }
+
+  [data-theme="dark"] .ring-bg { stroke: #252525; }
+  [data-theme="dark"] .rings-overall-pct { color: #e8e8e4; }
+  [data-theme="dark"] .rings-overall-label { color: #484844; }
+  [data-theme="dark"] .rings-legend-item { color: #555552; }
 </style>
 </head>
 <body>
@@ -845,6 +866,7 @@
 <!-- ═══════════════════════════════════════ -->
 
 <div class="progress-summary">
+  <div class="progress-bars-col">
   <div class="progress-summary-title">Overall Project Progress</div>
 
   <div class="progress-row">
@@ -881,6 +903,37 @@
     <div class="progress-label"><span class="dot dot-content-created"></span> Content Created</div>
     <div class="progress-track"><div class="progress-fill content-created" style="width: 0%;" data-target="9%"></div></div>
     <div class="progress-pct">9%</div>
+  </div>
+  </div>
+  <div class="rings-chart-wrap">
+    <div class="rings-svg-container">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring-bg" cx="80" cy="80" r="15"/>
+        <circle class="ring-bg" cx="80" cy="80" r="25"/>
+        <circle class="ring-bg" cx="80" cy="80" r="35"/>
+        <circle class="ring-bg" cx="80" cy="80" r="45"/>
+        <circle class="ring-bg" cx="80" cy="80" r="55"/>
+        <circle class="ring-bg" cx="80" cy="80" r="65"/>
+        <circle id="ring-design"  class="ring-fill" cx="80" cy="80" r="15" stroke="#6366f1"/>
+        <circle id="ring-dev"     class="ring-fill" cx="80" cy="80" r="25" stroke="#f59e0b"/>
+        <circle id="ring-seo"     class="ring-fill" cx="80" cy="80" r="35" stroke="#10b981"/>
+        <circle id="ring-content" class="ring-fill" cx="80" cy="80" r="45" stroke="#ef4444"/>
+        <circle id="ring-sanity"  class="ring-fill" cx="80" cy="80" r="55" stroke="#8b5cf6"/>
+        <circle id="ring-created" class="ring-fill" cx="80" cy="80" r="65" stroke="#0ea5e9"/>
+      </svg>
+      <div class="rings-center-label">
+        <span class="rings-overall-pct" id="pieOverallPct">0%</span>
+        <span class="rings-overall-label">Overall</span>
+      </div>
+    </div>
+    <div class="rings-legend">
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#6366f1"></span>Design</div>
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#ef4444"></span>Content</div>
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#f59e0b"></span>Dev</div>
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#8b5cf6"></span>Sanity</div>
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#10b981"></span>SEO</div>
+      <div class="rings-legend-item"><span class="rings-legend-dot" style="background:#0ea5e9"></span>Created</div>
+    </div>
   </div>
 </div>
 
@@ -1502,6 +1555,41 @@
       });
     }
   })();
+
+  // ── Ring chart animation ──
+  document.addEventListener('DOMContentLoaded', function() {
+    var ringIds   = ['ring-design','ring-dev','ring-seo','ring-content','ring-sanity','ring-created'];
+    var ringRadii = [15, 25, 35, 45, 55, 65];
+    var fills     = document.querySelectorAll('.progress-fill');
+
+    // Overall %
+    var total = 0;
+    fills.forEach(function(f) {
+      total += parseFloat(f.getAttribute('data-target') || f.style.width) || 0;
+    });
+    var pctEl = document.getElementById('pieOverallPct');
+    if (pctEl) pctEl.textContent = Math.round(total / (fills.length || 1)) + '%';
+
+    // Init rings to zero
+    ringIds.forEach(function(id, idx) {
+      var el = document.getElementById(id);
+      if (el) el.setAttribute('stroke-dasharray', '0 ' + (2 * Math.PI * ringRadii[idx]).toFixed(1));
+    });
+
+    // Staggered fill
+    setTimeout(function() {
+      fills.forEach(function(fill, i) {
+        if (i >= ringIds.length) return;
+        setTimeout(function() {
+          var pct  = parseFloat(fill.getAttribute('data-target')) || 0;
+          var circ = (2 * Math.PI * ringRadii[i]).toFixed(1);
+          var el   = document.getElementById(ringIds[i]);
+          if (el) el.setAttribute('stroke-dasharray', ((pct / 100) * circ).toFixed(1) + ' ' + circ);
+        }, i * 200);
+      });
+    }, 120);
+  });
+
 </script>
 
 </body></html>
